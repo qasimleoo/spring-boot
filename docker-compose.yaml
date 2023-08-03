@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  db:
+    container_name: postgres
+    image: postgres:latest  # Specify the desired version here
+    environment:
+      POSTGRES_USER: amigos
+      POSTGRES_PASSWORD: password
+      PGDATA: /data/postgres
+    volumes:
+      - db:/data/postgres
+    ports:
+      - "5432:5432"  # Map host port 5432 to container port 5432
+    networks:
+      - db
+    restart: unless-stopped
+
+networks:
+  db:
+    driver: bridge
+
+volumes:
+  db:

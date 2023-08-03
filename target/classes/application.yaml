@@ -1,0 +1,10 @@
+#Change the server
+server:
+#  port: 3000
+  port: 8820 #default
+
+#Run application without web server
+spring:
+  main:
+#    web-application-type: none
+    web-application-type: servlet #default
