@@ -1,8 +1,23 @@
 package com.amigos;
 
+import jakarta.persistence.*;
+import org.springframework.boot.SpringApplication;
+
 import java.util.Objects;
 
+@Entity
 public class Customer {
+
+    @Id
+    @SequenceGenerator(
+            name = "customer_id_sequence",
+            sequenceName = "customer_id_sequence",
+            allocationSize = 1 // default is 50
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "customer_id_sequence"
+    )
     private Integer ID;
     private String name;
     private String email;
@@ -65,7 +80,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return "com.amigos.Customer{" +
                 "ID=" + ID +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +

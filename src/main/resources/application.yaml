@@ -5,6 +5,19 @@ server:
 
 #Run application without web server
 spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/customer
+    username: amigos
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
   main:
-#    web-application-type: none
+    #    web-application-type: none
     web-application-type: servlet #default
+
