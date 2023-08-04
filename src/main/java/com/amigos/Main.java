@@ -36,4 +36,19 @@ public class Main {
             List<String> favList,
             Person person
     ) {}
+
+    // Customers DB
+
+    private final CustomerRepository customerRepository;
+
+    public Main(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
+
+    @GetMapping("api/v1/customers")
+    public List<Customer> getCustomer(){
+        return customerRepository.findAll();
+    }
+
+
 }
